@@ -4,9 +4,7 @@ version = "0.1.0"
 description = "Boilerplate moderno para proyectos de Python"
 readme = "README.md"
 requires-python = ">=3.11"
-authors = [
-    { name = "Tu Nombre", email = "tu@email.com" },
-]
+authors = [{ name = "Tu Nombre", email = "tu@email.com" }]
 license = { text = "MIT" }
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -24,7 +22,7 @@ dev = ["pytest>=8.0.0", "ruff>=0.3.0"]
 [project.optional-dependencies]
 
 [project.scripts]
-python-boilerplate = "python_boilerplate.main:app"
+main = "python_boilerplate.main:main"
 
 [build-system]
 requires = ["hatchling"]
