@@ -14,7 +14,7 @@ Boilerplate moderno y minimalista para proyectos de Python.
 
 ```bash
 uv venv
-uv sync
+uv sync --group dev
 ```
 
 ## Uso
