@@ -3,7 +3,7 @@ name = "python-boilerplate"
 dynamic = ["version"]
 description = "Boilerplate moderno para proyectos de Python"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 authors = [{ name = "Tu Nombre", email = "tu@email.com" }]
 license = { text = "MIT" }
 classifiers = [
@@ -17,7 +17,14 @@ classifiers = [
 dependencies = []
 
 [dependency-groups]
-dev = ["pytest>=8.0.0", "ruff>=0.3.0"]
+[dependency-groups]
+dev = [
+    "mypy>=1.16",
+    "pdoc>=16.0.0",
+    "pytest>=8.0.0",
+    "pre-commit>=4.0.0",
+    "ruff>=0.3.0",
+]
 
 [project.optional-dependencies]
 
@@ -34,7 +41,7 @@ path = "src/python_boilerplate/__init__.py"
 # Configuración de Ruff (Linter + Formatter todo en uno)
 [tool.ruff]
 line-length = 88
-target-version = "py311"
+target-version = "py313"
 
 [tool.ruff.format]
 quote-style = "double"
@@ -43,9 +50,18 @@ line-ending = "auto"
 
 # Errores básicos, Pyflakes, imports ordenados, pyupgrade y bugbear
 [tool.ruff.lint]
-select = ["E", "F", "I", "UP", "B"]
+select = ["E", "F", "I", "UP", "B", "D"]
+[tool.ruff.lint.pydocstyle]
+convention = "google"
 
 # Configuración de Pytest
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
+
+# Configuración de Mypy
+[tool.mypy]
+python_version = "3.13"
+strict = true
+mypy_path = ["src"]
+files = ["src", "tests", "scripts"]

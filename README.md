@@ -1,17 +1,14 @@
 # Python Boilerplate
 
-Boilerplate moderno y minimalista para proyectos en Python (3.12+), optimizado para `uv`, `ruff` y `pytest`.
+Boilerplate moderno y minimalista para proyectos en Python (3.13), optimizado para `uv`, `ruff`, `pytest`, `mypy`.
 
 ---
 
 ## 🚀 Instalación y Configuración
 
 ```bash
-# Crear el entorno virtual e instalar todas las dependencias (desarrollo y producción)
-uv sync
-
-# Crear manualmente solo el entorno virtual
-uv venv
+uv sync     # Crear entorno virtual e instalar dependencias
+uv venv     # Crear manualmente solo el entorno virtual
 ```
 
 ---
@@ -19,32 +16,18 @@ uv venv
 ## 🛠️ Comandos Habituales
 
 ```bash
-# Ejecutar el script principal (definido en pyproject.toml -> [project.scripts])
-uv run main
-
-# Ejecutar la suite de pruebas unitarias
-uv run pytest
-
-# Analizar errores de código, imports y buenas prácticas (Linter)
-uv run ruff check
-
-# Corregir automáticamente errores de linting que sean solucionables
-uv run ruff check --fix
-
-# Formatear el código automáticamente según el estándar PEP 8
-uv run ruff format
-
-# Añadir una dependencia de producción (ej: pydantic, requests)
-uv add pydantic
-
-# Añadir una dependencia solo para desarrollo (ej: pytest-cov)
-uv add --dev pytest-cov
-
-# Eliminar una dependencia existente
-uv remove pydantic
-
-# Sincronizar y actualizar el archivo de bloqueo (uv.lock)
-uv lock
+uv run main                         # Ejecutar el script principal
+uv run ruff check                   # Analizar errores de código
+uv run ruff check --fix             # Lint automático
+uv run ruff format                  # Formateado automático según PEP 8
+uv run mypy                         # Comprobar tipado estricto
+uv run pdoc .\src\ -d google        # Documentación rápida en HTML
+uv run pytest                       # Ejecutar la suite de pruebas unitarias
+uv add pydantic                     # Añadir dependencia de producción
+uv add --dev pytest-cov             # Añadir una dependencia de desarrollo
+uv remove pydantic                  # Eliminar una dependencia instalada
+uv run pre-commit run --all-files   # Ejecutar secuencia pre-commit
+uv lock                             # Actualizar `uv.lock`
 ```
 
 ---
