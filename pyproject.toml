@@ -17,7 +17,6 @@ classifiers = [
 dependencies = []
 
 [dependency-groups]
-[dependency-groups]
 dev = [
     "mypy>=1.16",
     "pdoc>=16.0.0",
